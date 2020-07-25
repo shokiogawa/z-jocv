@@ -1,0 +1,15 @@
+<div class="nested-fields">
+          
+          <div class="form-group">
+            <%= f.text_field :title, class:"form-control", placeholder: "Sub title" %>
+          </div>
+    
+          
+          <div class="form-group">
+              <%= f.text_area :c, class:"form-control",rows: 10 , placeholder: "Describe the explanation for movie" %>
+          </div>
+          
+          
+          <%= link_to_remove_association "Delate area", f %>
+         
+</div>

@@ -1,0 +1,18 @@
+<div class="container mt-5 bg-light">
+    <% @users.each do |user| %>
+     <div class="media pt-3 pb-3 border-bottom">
+       <% if user.image_url %>
+         <%= image_tag user.image_url(:thumb), class: "rounded-circle" %>
+       <% else %>
+         <img src="<%= gravatar_url(user, size: 50) %>" alt="" class="rounded-circle mt-3">
+      <% end %>
+      <div class="media-body ml-3">
+          <h5 class="mt-0 "><%= link_to user.name, user_path(user) %></h5>
+          <p class="d-inline">派遣国:<%= user.country %></p>
+          <p>隊次:<%= user.year %></p>
+          <p>職種:<%= user.job %></p>
+      </div>
+    
+    </div>
+    <% end %>
+</div>

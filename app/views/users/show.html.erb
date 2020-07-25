@@ -1,0 +1,52 @@
+<div class="row">
+ <div class="col-sm-4">
+    <div class="card mt-4">
+           <div class="card-body">
+            <div class="card-heading text-center border-bottom">
+             <div class="img mb-2">
+              <% if @user.image_url %>
+                 <%= image_tag @user.image_url(:thumb1), class:" ml-3 rounded-circle" %>
+              <% else %>
+                  <img src="<%= gravatar_url(@user, size: 80) %>" alt="" class="img-circle">
+              
+              <% end %>
+             </div>
+              <p class="ml-3"><%= @user.name %></p>
+
+            </div>
+            <div class="text-center">
+              
+            　<p class="card-text"><%= @user.year %></p>
+              <p class="card-text"><%= @user.job %></p>
+              <p class="card-text"><%= @user.country%></p>
+            </div>
+
+           </div>
+      </div>
+   </div>
+
+   <div class="col-sm-8 border border-rounded mt-4 bg-white">
+     
+     <div class="contents mt-3 ">
+      <h5><i class="far fa-file-alt text-info mr-3"></i>New Video</h5>
+      <% @posts.each do |post| %>
+       <div class="con border-bottom mt-5">
+         <div class="mt-3">
+         <% post.kinds.each do |kind| %>
+           <p class="bg-light rounded border p-1 d-inline"><%= kind.k %></p>
+          <% end %>
+          </div>
+         <h4 class="mt-3"><%= link_to post.title, post_path(post),class:"text-dark" %></h4>
+         <p><%= post.ex %></p>
+        </div>
+
+
+
+
+      <% end %>
+     </div>
+   </div>
+   
+    
+   
+</div>

@@ -1,0 +1,46 @@
+<div class="post mt-5 bg-light">
+ <div class="container pt-4 pl-5">
+     
+  <div class="name">
+    <%= image_tag @user.image_url(:thumb), class:"rounded-circle mr-2" %>
+    <%= @user.name %>
+  </div>
+  
+  <div class="title mt-2">
+      <h1><%= @post.title %></h1>
+  </div>
+  
+  <div class="mt-4 mb-2">
+        <% @post.kinds.each do |kind| %>
+          <p class="bg-light rounded border p-2 d-inline"><%= kind.k %></p>
+        <% end %>
+ </div>
+  
+  
+  
+  <div class="URL  mt-5 mb-5">
+      <iframe width="250"  src="https://www.youtube.com/embed/<%= @post.url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+ 
+  
+  <div class="se bg-white p-2 rounded">
+      <p class="border-bottom">Overview</p>
+      <%= @post.ex %>
+  </div>
+  
+  <div class="contents bg-white rounded p-2 mt-3">
+     
+      <% @post.contents.each do |content| %>
+       <div class="contents mt-5">
+          <h3 class="border-bottom mb-3"><%= content.title %></h3>
+         <div class="c ">
+           <%= simple_format(content.c) %>
+         </div>
+       </div>
+      <% end %>
+  </div>
+  
+  
+  
+  
+  

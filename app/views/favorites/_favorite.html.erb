@@ -1,0 +1,11 @@
+<% if logged_in? %>
+<% if current_user.favorite?(post) %>
+  <%= link_to favorite_path(post), method: :delete, remote: true do %>
+    <i class="fas fa-heart text-danger"></i>
+  <% end %>
+<% else %>
+  <%= link_to favorites_path(post_id: post.id), method: :post, remote: true do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+<% end %>

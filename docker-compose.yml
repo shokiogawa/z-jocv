@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3003 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - 3003:3003
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+  db:
+    image: mysql:5.7
+    volumes:
+      - db-volume:/var/lib/mysql
+      - gem-data:/usr/local/bundle
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+volumes:
+  db-volume:
+  gem-data:
