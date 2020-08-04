@@ -15,10 +15,10 @@ services:
     image: mysql:5.7
     volumes:
       - db-volume:/var/lib/mysql
-      - gem-data:/usr/local/bundle
+      
     
     environment:
       MYSQL_ROOT_PASSWORD: password
 volumes:
   db-volume:
-  gem-data:
+  
