@@ -1,0 +1,63 @@
+ <div class="col-sm-5 p">
+   <h1 class="mt-5 border-bottom text-center">SCIENCE INTRODUCTION</h1>
+ </div>
+  <div class="col-sm-7 bg-dark" style="height:300px;">
+   <h1 class="mt-5 text-light border-bottom text-center">FROM JOCV</h1>
+ </div>
+  <div class=" col-sm-5 bg-dark text-light" style="height:300px;">
+   <h3 class="mt-5">This is the web cite which gather some video for your education.</h3>
+   <h4>Please find the best video which help your teaching.</h4>
+ </div>
+  <div class="col-sm-7 bg-" style="height:300px;">
+   <p class="mt-3 border-bottom">Find video by following two </p>
+   <div class="form-group">
+   <%= form_with(url: toppages_path, method: :get, local: true) do |f| %>
+     <%= f.text_field :ex ,class:"form-control", placeholder: "Write the keyword" %>
+     <p class="text-right"><%= f.submit "Search" ,class:"btn btn-primary"%></p>
+   <% end %>
+   </div>
+   
+   <div class="choose">
+     <p>Choose subject</p>
+     <div class="list-group container">
+     <%= form_with url: toppages_path,local: true, method: :get do |f| %>
+       <%= select_tag :kind_id, 
+              options_from_collection_for_select(Kind.all, :id, :k, params[:kind_id]),
+              {
+                  prompt: "Subject",
+                  class:"list-group-item list-group-item-action",
+                  
+                  
+                  
+                  
+                  
+              }
+       %>
+       <p class="text-right"><%= f.submit "Go", class:"btn btn-primary" %></p>
+    <% end %>
+    </div>
+   </div>
+ </div>
+  <div class=" col-sm-5 bg-info text-center" style="height:100px;">
+    <button class="btn btn-dark mt-4">Textbook</button>
+ </div>
+  <div class=" col-sm-7 bg-dark text-center" style="height:100px;">
+    <button class="btn btn-info mt-4">Video</button>
+ </div>
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="container">
+   <%= render "posts", posts: @posts %>
+  </div>
+ </div> 

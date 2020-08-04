@@ -17,3 +17,11 @@ Kind.create(
         {k: "Other"},
     ]
     )
+Textbook.create(
+    [
+        {grade: "Grade8"},
+        {grade: "Grade9"},
+        {grade: "Grade10"},
+        {grade: "Grade11"},
+    ]
+)

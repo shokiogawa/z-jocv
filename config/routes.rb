@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   get 'toppages/index'
   get 'favorites/new'
   get 'favorites/create'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   resources :toppages, only: [:index] 
       
   resources :users 
+  resources :textbooks, only: [:show]
   
   resources :posts do
     collection do
