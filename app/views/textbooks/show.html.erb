@@ -9,8 +9,11 @@
            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<%= topic.id %>" aria-expanded="true" aria-controls="collapse<%= topic.id %>">
              <%= topic.title %>
              <% if logged_in? %>
-              <%= link_to "Delete", topic, method: :delete %>
-              <%= link_to "Add contents", topic ,class: "text-right btn btn-primary text-right"%>
+              
+              <div class="text-right">
+              <%= link_to "Add contents", topic ,class: " btn btn-primary"%>
+               <%= link_to "Delete", topic, method: :delete,class: "btn btn-danger" %>
+              </div>
              <% end %>
            </button>
          </h2>
@@ -18,7 +21,9 @@
 
        <div id="collapse<%= topic.id %>" class="collapse" aria-labelledby="heading<%= topic.id %>" data-parent="#accordionExample">
          <div class="card-body">
-           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+           <% topic.t_contents.each do |content| %>
+            <div class="ml-5 border border-rounded p-2"><%= content.title %></div>
+           <% end %>
          </div>
        </div>
       </div>
