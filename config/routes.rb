@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   resources :users 
   resources :textbooks, only: [:show]
 
-  resources :topics 
-  resources :t_contents
+  resources :topics do
+   resources :t_contents
+  end
   
   
   resources :posts do

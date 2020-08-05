@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
 
   def show
+    @topic = Topic.find(params[:id])
+    @t_content = @topic.t_contents.build
   end
 
 

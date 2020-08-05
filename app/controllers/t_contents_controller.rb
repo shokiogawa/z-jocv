@@ -6,13 +6,13 @@ class TContentsController < ApplicationController
   end
 
   def new
-    @t_content = current_user.t_contents.build
+    
   end
 
   def create
-    @topic = Topic.find(params[:id])
-    @t_content = current_user.t_contents.build(params_t_content)
-    @t_content.user_id = @topic.id
+    @topic = Topic.find(params[:topic_id])
+    @t_content = @topic.t_contents.build(params_t_content)
+    @t_content.user_id = current_user.id
     if @t_content.save
       flash[:success] = "コンテンツを作成しました"
       redirect_to topic_path(@t_content.topic)
