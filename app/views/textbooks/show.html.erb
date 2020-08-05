@@ -10,7 +10,7 @@
              <%= topic.title %>
              <% if logged_in? %>
               <%= link_to "Delete", topic, method: :delete %>
-              <%= link_to "Add contents", new_t_content ,class: "text-right btn btn-primary"%>
+              <%= link_to "Add contents", topic ,class: "text-right btn btn-primary text-right"%>
              <% end %>
            </button>
          </h2>

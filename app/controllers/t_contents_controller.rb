@@ -6,12 +6,13 @@ class TContentsController < ApplicationController
   end
 
   def new
-    @t_content = topic.t_contents.build
+    @t_content = current_user.t_contents.build
   end
 
   def create
-    @t_content = topic.t_contents.build(params_t_content)
-    @t_content.user_id = current_user.id
+    @topic = Topic.find(params[:id])
+    @t_content = current_user.t_contents.build(params_t_content)
+    @t_content.user_id = @topic.id
     if @t_content.save
       flash[:success] = "コンテンツを作成しました"
       redirect_to topic_path(@t_content.topic)
@@ -34,6 +35,6 @@ class TContentsController < ApplicationController
   private 
 
   def params_t_content
-    params.require(:t_content).permit(:image, :c, :title)
+    params.require(:t_content).permit(:title, s_content_attributes: [:id, :image, :stitle, :content, :_destroy])
   end
 end

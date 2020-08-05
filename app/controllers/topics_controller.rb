@@ -1,4 +1,11 @@
 class TopicsController < ApplicationController
+
+  def show
+  end
+
+
+
+
   def new
     @topic = textbook.topics.build
   end
