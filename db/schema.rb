@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_111045) do
+ActiveRecord::Schema.define(version: 2020_08_05_032636) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2020_08_04_111045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "s_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image"
+    t.string "stitle"
+    t.text "content"
+    t.bigint "t_content_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["t_content_id"], name: "index_s_contents_on_t_content_id"
   end
 
   create_table "t_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_111045) do
   add_foreign_key "post_kind_relationships", "kinds"
   add_foreign_key "post_kind_relationships", "posts"
   add_foreign_key "posts", "users"
+  add_foreign_key "s_contents", "t_contents"
   add_foreign_key "t_contents", "topics"
   add_foreign_key "t_contents", "users"
   add_foreign_key "topics", "textbooks"
