@@ -24,6 +24,32 @@ class TopicsController < ApplicationController
     end
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    if @topic.update(params_topic)
+      flash[:success] = "編集に成功しました"
+      redirect_to textbook_path(@topic.textbook)
+    else
+      flash.now[:danger] = "編集に失敗しました"
+      render :edit
+      
+    end
+  end
+
+
+
+
+
+
+
+
+
+
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy 

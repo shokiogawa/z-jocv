@@ -1,2 +1,24 @@
-<h1>TContents#show</h1>
-<p>Find me in app/views/t_contents/show.html.erb</p>
+<div class="container">
+ <div class="topic mt-5 text-center">
+  <h2><%= @t_content.topic.title %></h2>
+ </div>
+
+
+ <div class="title mt-5 border-bottom border-info">
+  <h1><%= @t_content.title %></h1>
+ </div>
+
+ <div class="TCON bg-light ">
+  <% @t_content.s_contents.each do |content| %>
+
+   <div class="stitle border-bottom mt-5">
+     <h2><%= content.stitle %></h2>
+   </div>
+   <div class="content mt-5">
+     <p><%= content.content %></p>
+   </div>
+
+  <% end %>
+ </div>
+
+</div>

@@ -3,6 +3,8 @@ class TContentsController < ApplicationController
   end
 
   def show
+    
+    @t_content = TContent.find(params[:id])
   end
 
   def new

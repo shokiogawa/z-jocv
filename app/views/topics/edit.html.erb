@@ -1,0 +1,13 @@
+<div class="container">
+ <%= form_with(model: @topic, local: true) do |f| %>
+  <div class="form-group">
+   <%= f.label :title, "Edit" %>
+   <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="submit text-right">
+   <%= f.submit "Edit", class: "btn bnt-success"%>
+  </div>
+
+ <% end %>
+</div>

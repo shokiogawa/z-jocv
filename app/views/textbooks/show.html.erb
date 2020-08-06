@@ -2,32 +2,45 @@
 <div class="container">
 <h3 class="mt-5">Topics</h3>
     <% @topics.each do |topic| %>
+    <% if topic.id %>
     <div class="accordion" id="accordionExample">
       <div class="card">
        <div class="card-header" id="heading<%= topic.id %>">
          <h2 class="mb-0">
            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<%= topic.id %>" aria-expanded="true" aria-controls="collapse<%= topic.id %>">
              <%= topic.title %>
+           </button>
+           
              <% if logged_in? %>
               
               <div class="text-right">
-              <%= link_to "Add contents", topic ,class: " btn btn-primary"%>
-               <%= link_to "Delete", topic, method: :delete,class: "btn btn-danger" %>
+               
+               <%= link_to "Add contents", topic ,class: " btn btn-primary d-inline"%>
+               
+              </div>
+              
+              <div class="text-left">
+               <%= link_to "Edit", edit_topic_path(topic), class: "btn btn-success d-inline"%>
+               <%= link_to "Delete", topic, method: :delete,class: "btn btn-danger d-inline" %>
               </div>
              <% end %>
-           </button>
+           
          </h2>
        </div>
 
        <div id="collapse<%= topic.id %>" class="collapse" aria-labelledby="heading<%= topic.id %>" data-parent="#accordionExample">
          <div class="card-body">
            <% topic.t_contents.each do |content| %>
-            <div class="ml-5 border border-rounded p-2"><%= content.title %></div>
+            <div class="ml-5 border border-rounded p-2">
+             <h3><%= link_to content.title, t_content_path(content) %></h3>
+            
+            </div>
            <% end %>
          </div>
        </div>
       </div>
     </div>
+    <% end %>
     <% end %>
    
   <% if logged_in? %>
