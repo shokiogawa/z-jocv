@@ -8,7 +8,17 @@
      <%= hidden_field_tag :topic_id, @topic.id %>
     </div>
 
-    <div class="t_content">
+    <div class="point mt-5">
+      <%= f.fields_for :points do |t| %>
+       <%= render "point_fields", f: t %>
+      <% end %>
+      <div class="links mb-3 text-right">
+         <%= link_to_add_association "Add point", f, :points, class: "btn btn-primary" %>
+      </div>
+    </div>
+
+
+    <div class="t_content mt-5">
       <%= f.fields_for :s_contents do |t| %>
        <%= render "s_content_fields", f: t %>
       <% end %>

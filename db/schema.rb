@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_032636) do
+ActiveRecord::Schema.define(version: 2020_08_06_114550) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 2020_08_05_032636) do
     t.string "k"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "p"
+    t.bigint "t_content_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["t_content_id"], name: "index_points_on_t_content_id"
   end
 
   create_table "post_kind_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,6 +115,7 @@ ActiveRecord::Schema.define(version: 2020_08_05_032636) do
   add_foreign_key "contents", "posts"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "points", "t_contents"
   add_foreign_key "post_kind_relationships", "kinds"
   add_foreign_key "post_kind_relationships", "posts"
   add_foreign_key "posts", "users"

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  p: MyString
+  t_content: one
+
+two:
+  p: MyString
+  t_content: two
