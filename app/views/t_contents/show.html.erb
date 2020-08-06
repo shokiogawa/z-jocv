@@ -8,6 +8,15 @@
   <h1><%= @t_content.title %></h1>
  </div>
 
+ <div class="point mt-5">
+  <p>Important word</p>
+  <% @t_content.points.each do |point| %>
+   <div class="d-inline border rounded p-2 border-success mr-2">
+    <%= point.p %>
+   </div>
+  <% end %>
+ </div>
+
  <div class="TCON bg-light p-4 mt-5 border-rounded ">
   <% @t_content.s_contents.each do |content| %>
 
