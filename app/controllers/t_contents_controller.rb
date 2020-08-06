@@ -32,6 +32,10 @@ class TContentsController < ApplicationController
   end
 
   def destroy
+    @t_content = TContent.find(params[:id])
+    @t_content.destroy 
+    flash[:success] = "正常に削除されました"
+    redirect_back(fallback_location: root_path)
   end
 
   private 
