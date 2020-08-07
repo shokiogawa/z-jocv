@@ -17,6 +17,19 @@
   <% end %>
  </div>
 
+ <div class="form-group mt-5">
+  <P>Experimrnt</p>
+  <% @t_content.posts.each do |post| %>
+  <ul>
+   <li><%= link_to post.title, post_path(post) %></li>
+  </ul>
+  <% end %>
+ </div>
+
+
+
+
+
  <div class="TCON bg-light p-4 mt-5 border-rounded ">
   <% @t_content.s_contents.each do |content| %>
 

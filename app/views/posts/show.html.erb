@@ -2,7 +2,9 @@
  <div class="container pt-4 pl-5">
      
   <div class="name">
+    <%if @user.image_url %>
     <%= image_tag @user.image_url(:thumb), class:"rounded-circle mr-2" %>
+    <% end %>
     <%= @user.name %>
   </div>
   
