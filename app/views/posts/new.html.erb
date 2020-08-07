@@ -16,6 +16,16 @@
          <% end %>
      <% end %>
     </div>
+
+    <div class="form-group mt-3 t_content">
+     <%= select_tag :t_content_id,
+              options_from_collection_for_select(TContent.all, :id, :title, params[:t_content_id]),
+              {
+                  prompt: "Make relationship with content",
+              }
+    %>
+    
+    </div>
           
           
           

@@ -18,6 +18,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     #@post = Post.new(post_params)
+    @t_content = TContent.find(params[:t_content_id])
+    @post.t_content_id = @t_content.id
     url = params[:post][:url]
     url = url.last(11)
     @post.url = url
