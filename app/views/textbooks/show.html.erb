@@ -30,15 +30,21 @@
 
        <div id="collapse<%= topic.id %>" class="collapse" aria-labelledby="heading<%= topic.id %>" data-parent="#accordionExample">
          <div class="card-body">
+          <% if topic.t_contents.any? %>
            <% topic.t_contents.each do |content| %>
-            <div class="ml-5 border border-rounded p-2">
-             <h3><%= link_to content.title, t_content_path(content) %></h3>
+            <div class="ml-5 border-bottom border-rounded p-2">
+             <h4><%= link_to content.title, t_content_path(content) %></h4>
+             <% if logged_in? %>
              <div class="text-right">
               <%= link_to "Delate", content, method: :delete,class: "btn btn-danger d-inline" %>
              </div>
+             <% end %>
             
             </div>
            <% end %>
+          <% else %>
+           <p>Sorry, There are no contents </p>
+          <% end %>
          </div>
        </div>
       </div>

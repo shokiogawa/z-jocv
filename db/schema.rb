@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_114550) do
+ActiveRecord::Schema.define(version: 2020_08_07_074320) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -61,7 +61,18 @@ ActiveRecord::Schema.define(version: 2020_08_06_114550) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "t_content_id"
+    t.index ["t_content_id"], name: "index_posts_on_t_content_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relatives", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "t_content_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_relatives_on_post_id"
+    t.index ["t_content_id"], name: "index_relatives_on_t_content_id"
   end
 
   create_table "s_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -118,7 +129,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_114550) do
   add_foreign_key "points", "t_contents"
   add_foreign_key "post_kind_relationships", "kinds"
   add_foreign_key "post_kind_relationships", "posts"
+  add_foreign_key "posts", "t_contents"
   add_foreign_key "posts", "users"
+  add_foreign_key "relatives", "posts"
+  add_foreign_key "relatives", "t_contents"
   add_foreign_key "s_contents", "t_contents"
   add_foreign_key "t_contents", "topics"
   add_foreign_key "t_contents", "users"

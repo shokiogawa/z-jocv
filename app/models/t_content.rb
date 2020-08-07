@@ -6,4 +6,7 @@ class TContent < ApplicationRecord
   has_many :points, dependent: :destroy
   accepts_nested_attributes_for :points, allow_destroy: true
 
+  
+  has_many :posts,  dependent: :destroy
+
 end

@@ -11,4 +11,6 @@ class Post < ApplicationRecord
     has_many :users, through: :favorites
   
     accepts_nested_attributes_for :contents, allow_destroy: true
+    
+    belongs_to :t_content
 end
