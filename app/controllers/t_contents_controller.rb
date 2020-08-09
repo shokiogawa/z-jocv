@@ -41,6 +41,6 @@ class TContentsController < ApplicationController
   private 
 
   def params_t_content
-    params.require(:t_content).permit(:title, s_contents_attributes: [:id, :image, :stitle, :content, :_destroy], points_attributes: [:id, :p, :_destroy])
+    params.require(:t_content).permit(:title, s_contents_attributes: [:id, :image, :stitle, :content, :image, :_destroy], points_attributes: [:id, :p, :_destroy])
   end
 end

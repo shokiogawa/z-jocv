@@ -5,9 +5,16 @@
   <%= f.text_field :stitle, class: "form-control",  placeholder: "Write sub topic, ex) Density and volume" %>
  </div>
 
- <div class="form-group mt-3">
+ <div class="form-group mt-3 image">
+  <%= f.label :image, "画像" %>
+  <%= f.file_field :image %>
+ </div>
+
+ <div class="form-group mt-2">
    
    <%= f.text_area :content, class: "form-control" ,rows: 10, placeholder: "Write content, ex) Mass of a unit volume of a material substance. " %>
  </div>
+
+ 
  <%= link_to_remove_association "Remove", f %>
 </div>
