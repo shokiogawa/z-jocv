@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   get 'toppages/index'
   get 'favorites/new'
   get 'favorites/create'
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
     resources :exams
   end
   resources :t_contents
+  resources :answers
   
   
   

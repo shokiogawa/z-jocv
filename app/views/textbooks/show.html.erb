@@ -15,7 +15,8 @@
               
               <div class="text-right">
                
-               <%= link_to "Add contents", topic ,class: " btn btn-primary d-inline"%>
+               <%= link_to "Add contents", topic ,class: " btn btn-primary d-inline" %>
+               <%= link_to "Add examination", new_topic_exam_path(topic) ,class: "btn bnt-success d-inline" %>
                
               </div>
               
@@ -30,7 +31,9 @@
 
        <div id="collapse<%= topic.id %>" class="collapse" aria-labelledby="heading<%= topic.id %>" data-parent="#accordionExample">
          <div class="card-body">
+
           <% if topic.t_contents.any? %>
+          <p>Contents</p>
            <% topic.t_contents.each do |content| %>
             <div class="ml-5 border-bottom border-rounded p-2">
              <h4><%= link_to content.title, t_content_path(content) %></h4>
@@ -39,11 +42,23 @@
               <%= link_to "Delate", content, method: :delete,class: "btn btn-danger d-inline" %>
              </div>
              <% end %>
-            
             </div>
            <% end %>
           <% else %>
            <p>Sorry, There are no contents </p>
+          <% end %>
+          <% if topic.exams.any? %>
+          <p>Examination</p>
+           <% topic.exams.each do |exam| %>
+            <div class="ml-5 border-bottom border-rounded p-2">
+            <h3><%= link_to exam.title, topic_exam_path(topic, exam) %></h3>
+            <% if logged_in? %>
+             <div class="text-right">
+              <%= link_to "Delate", topic_exam_path(topic, exam), method: :delete, class: "btn btn-danger d-inline" %>
+             </div>
+             <% end %>
+            </div>
+           <% end %>
           <% end %>
          </div>
        </div>

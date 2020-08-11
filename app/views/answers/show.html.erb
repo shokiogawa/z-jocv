@@ -1,0 +1,12 @@
+<div class="container ">
+
+ <div class="answer mt-5 bg-white border border-rounded p-3">
+  <p><%= simple_format(@answer.a) %></p>
+ </div>
+
+<% if logged_in? %>
+ <div class="d text-right">
+  <%= link_to "Delate", @answer, method: :delete,class: "btn btn-danger d-inline" %>
+ </div>
+<% end %>
+</div>

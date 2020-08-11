@@ -4,9 +4,11 @@ class ExamsController < ApplicationController
 
   def show
     @exam = Exam.find(params[:id])
+    @answer = Answer.new
   end
 
   def new
+    @topic = Topic.find(params[:topic_id])
     @exam = @topic.exams.build
     
   end
@@ -39,6 +41,6 @@ class ExamsController < ApplicationController
 
   private
   def params_exam
-    params.require(:exam).permit(:title, s_contents_attributes: [:id, :image, :stitle, :content, :image, :_destroy])
+    params.require(:exam).permit(:title, sexams_attributes: [:id, :image, :stitle, :content, :_destroy])
   end
 end
