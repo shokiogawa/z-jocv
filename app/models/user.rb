@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :f_posts, through: :favorites, source: :post
   has_many :t_contents
+  has_many :exams
   
 def favorite?(post)
   self.f_posts.include?(post)

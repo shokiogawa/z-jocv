@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @t_content = @topic.t_contents.build
+    @exam = @topic.exams.build
   end
 
 

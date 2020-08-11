@@ -10,16 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_074320) do
+ActiveRecord::Schema.define(version: 2020_08_11_062109) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.string "image"
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "c"
     t.index ["post_id"], name: "index_contents_on_post_id"
+  end
+
+  create_table "exams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "topic_id"
+    t.bigint "user_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_exams_on_topic_id"
+    t.index ["user_id"], name: "index_exams_on_user_id"
   end
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -85,6 +94,16 @@ ActiveRecord::Schema.define(version: 2020_08_07_074320) do
     t.index ["t_content_id"], name: "index_s_contents_on_t_content_id"
   end
 
+  create_table "sexams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image"
+    t.string "stitle"
+    t.text "content"
+    t.bigint "exam_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exam_id"], name: "index_sexams_on_exam_id"
+  end
+
   create_table "t_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "topic_id"
     t.bigint "user_id"
@@ -124,6 +143,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_074320) do
   end
 
   add_foreign_key "contents", "posts"
+  add_foreign_key "exams", "topics"
+  add_foreign_key "exams", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "points", "t_contents"
@@ -134,6 +155,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_074320) do
   add_foreign_key "relatives", "posts"
   add_foreign_key "relatives", "t_contents"
   add_foreign_key "s_contents", "t_contents"
+  add_foreign_key "sexams", "exams"
   add_foreign_key "t_contents", "topics"
   add_foreign_key "t_contents", "users"
   add_foreign_key "topics", "textbooks"
