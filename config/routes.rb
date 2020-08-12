@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :exams
   end
   resources :t_contents
+  resources :s_contents
   resources :answers
   
   

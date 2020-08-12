@@ -23,7 +23,7 @@
   <body class="bg-light">
     <%= render "layouts/navbar"%>
     <% unless logged_in? %>
-    <div class="container-fluid">
+    <div class="container">
       <%= render "layouts/flash_messages" %>
       <%= yield %>
     </div>

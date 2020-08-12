@@ -26,9 +26,6 @@
      <p><%= simple_format(content.content) %></p>
    </div>
 
-   <div class="mt-5">
-    <p>Answer</p>
-   </div>
 
   <% end %>
  </div>
@@ -52,5 +49,7 @@
 </div>
 <% end %>
 <% else %>
- <%= link_to "See the answer", answer_path(@exam.answer) %>
+<div class="text-right mt-3">
+ <%= link_to "See the answer", answer_path(@exam.answer) ,class: "btn btn-success"%>
+</div>
 <% end %>

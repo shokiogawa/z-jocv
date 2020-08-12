@@ -1,0 +1,2 @@
+module SContentsHelper
+end

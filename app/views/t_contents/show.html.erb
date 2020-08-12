@@ -1,3 +1,4 @@
+
 <div class=" bg-white p-3">
  <div class="topic mt-3 text-center">
   <h2><%= @t_content.topic.title %></h2>
@@ -46,6 +47,12 @@
    <div class="content mt-5">
      <p><%= simple_format(content.content) %></p>
    </div>
+
+   <% if logged_in? %>
+   <div class="text-right">
+   <%= link_to "Edit", edit_s_content_path(content), class: "btn bnt-primary" %>
+   </div>
+   <% end %>
 
   <% end %>
  </div>
