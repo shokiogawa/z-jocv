@@ -8,7 +8,7 @@
        <div class="card-header" id="heading<%= topic.id %>">
          <h2 class="mb-0">
            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse<%= topic.id %>" aria-expanded="true" aria-controls="collapse<%= topic.id %>">
-             <%= topic.title %>
+             <h5><%= topic.title %></h5>
            </button>
            
              <% if logged_in? %>
@@ -36,7 +36,7 @@
           <p>Contents</p>
            <% topic.t_contents.each do |content| %>
             <div class="ml-5 border-bottom border-rounded p-2">
-             <h4><%= link_to content.title, t_content_path(content) %></h4>
+             <p><%= link_to content.title, t_content_path(content) %></p>
              <% if logged_in? %>
              <div class="text-right">
               <%= link_to "Delate", content, method: :delete,class: "btn btn-danger d-inline" %>
@@ -51,7 +51,7 @@
           <p>Examination</p>
            <% topic.exams.each do |exam| %>
             <div class="ml-5 border-bottom border-rounded p-2">
-            <h3><%= link_to exam.title, topic_exam_path(topic, exam) %></h3>
+            <p><%= link_to exam.title, topic_exam_path(topic, exam) %></p>
             <% if logged_in? %>
              <div class="text-right">
               <%= link_to "Delate", topic_exam_path(topic, exam), method: :delete, class: "btn btn-danger d-inline" %>

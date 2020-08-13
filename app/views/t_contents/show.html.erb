@@ -1,4 +1,4 @@
-
+<div class="container">
 <div class=" bg-white p-3">
  <div class="topic mt-3 text-center">
   <h2><%= @t_content.topic.title %></h2>
@@ -34,17 +34,17 @@
  <div class="TCON p-2 mt-5 border-rounded ">
   <% @t_content.s_contents.each do |content| %>
 
-   <div class="stitle border-bottom mt-5">
+   <div class="stitle1 border-bottom mt-5">
      <h2><%= content.stitle %></h2>
    </div>
 
 
   <% if content.image_url %>
-   <div class="image mt-3">
+   <div class="image1 mt-3">
     <%= image_tag content.image_url(:thumb2) %>
    </div>
   <% end %>
-   <div class="content mt-5">
+   <div class="content1 mt-5">
      <p><%= simple_format(content.content) %></p>
    </div>
 
@@ -57,4 +57,5 @@
   <% end %>
  </div>
 
+</div>
 </div>
