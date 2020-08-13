@@ -18,8 +18,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     #@post = Post.new(post_params)
-    @t_content = TContent.find(params[:t_content_id])
-    @post.t_content_id = @t_content.id
+    @t_content = TContent.find_by(id: params[:t_content_id])
+    if @t_content
+     @post.t_content_id = @t_content.id
+    end
     url = params[:post][:url]
     url = url.last(11)
     @post.url = url
@@ -39,6 +41,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:success] = "正常に削除されました"
+    redirect_to root_path
   end
 
   private
