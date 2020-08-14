@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   after_action :allow_iframe, only: [:show]
+  before_action :require_user_logged_in, only: [:new]
 
   def index
   end

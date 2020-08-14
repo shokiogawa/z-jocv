@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :require_user_logged_in, only: [:new, :edit]
 
   def show
     @topic = Topic.find(params[:id])
