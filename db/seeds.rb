@@ -5,23 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Kind.create(
-    [
-        {k: "Science"},
-        {k: "Mathematics"},
-        {k: "Language"},
-        {k: "English"},
-        {k: "Culture"},
-        {k: "Physical education"},
-        {k: "Society"},
-        {k: "Other"},
-    ]
-    )
+
 Textbook.create(
     [
-        {grade: "Grade8"},
-        {grade: "Grade9"},
-        {grade: "Grade10"},
-        {grade: "Grade11"},
+        {grade: "Grade10_science"},
     ]
 )
