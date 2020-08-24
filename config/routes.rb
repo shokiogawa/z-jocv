@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :t_contents
   resources :s_contents
   resources :answers
+  resources :guests
+  
   
   
   

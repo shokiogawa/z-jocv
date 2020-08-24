@@ -30,10 +30,13 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <%= link_to "Signup", signup_path ,class: "nav-link text-dark"%>
+      <%= link_to "Signup", signup_path ,class: "nav-link text-white"%>
     </li>
     <li class="nav-item">
-      <%= link_to "Login", login_path,class: "nav-link text-dark" %>
+      <%= link_to "Login", login_path,class: "nav-link text-white" %>
+    </li>
+    <li>
+     <%= link_to "Guest Login", guests_path, method: :post,class: "nav-link text-white"%>
     </li>
    </ul>
 </div>
