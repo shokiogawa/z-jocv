@@ -5,8 +5,10 @@
  </div>
 
 <% if logged_in? %>
+ <% if current_user == @answer.exam.user %>
  <div class="d text-right">
   <%= link_to "Delate", @answer, method: :delete,class: "btn btn-danger d-inline" %>
  </div>
+ <% end %>
 <% end %>
 </div>

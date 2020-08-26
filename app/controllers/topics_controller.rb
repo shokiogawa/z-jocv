@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
   def create
     @textbook = Textbook.find(params[:id])
     @topic = @textbook.topics.build(params_topic)
+    @topic.user_id = current_user.id
     if @topic.save
       flash[:success] = "topicを追加しました"
       redirect_to textbook_path(@textbook)
