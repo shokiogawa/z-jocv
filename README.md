@@ -26,8 +26,8 @@ Things you may want to cover:
 
 ``` test
 erDiagram
-    CAR ||--o{ NAMED-DRIVER : allows
-    PERSON ||--o{ NAMED-DRIVER : is
+    Person ||--o{ NAMED-DRIVER : allows
+    You ||--o{ NAMED-DRIVER : is
 ```
 
 
