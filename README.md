@@ -26,12 +26,12 @@ Things you may want to cover:
 
 ``` test
 erDiagram
-    CARs ||--o{ NAMED-DRIVER : allows
+    CAR ||--o{ NAMED-DRIVER : allows
     PERSON ||--o{ NAMED-DRIVER : is
 ```
 
 
-```mermaid
+```test
 sequenceDiagram
     participant Alice
     participant Bob
