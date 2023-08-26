@@ -31,7 +31,7 @@ erDiagram
 ```
 
 
-```test
+```mermaid
 sequenceDiagram
     participant Alice
     participant Bob
