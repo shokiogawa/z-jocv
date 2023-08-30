@@ -22,14 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-``` mermaid
+``` mermaida
 erDiagram
     Person ||--o{ NAMED-DRIVER : allows
     You ||--o{ NAMED-DRIVER : is
 ```
 
 
-```mermaid
+```mermaida
 sequenceDiagram
     participant Alice
     participant Bob
