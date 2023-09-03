@@ -63,3 +63,11 @@ sequenceDiagram
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
 ```
+
+``` test
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
