@@ -46,7 +46,7 @@ sequenceDiagram
 ``` test
 erDiagram
     Person ||--o{ NAMED-DRIVER : allows
-    You ||--o{ NAMED-DRIVER : is
+    You ||--o{ NAMED-DRIVER : issssss
 ```
 
 
